@@ -2,13 +2,13 @@ import reactLogo from "../assets/skill-icons/react-svgrepo-com.svg";
 
 function Footer() {
   return (
-    <div className="w-full px-[8%] lg:px-[10%] mx-auto flex flex-col py-10 mt-10">
+    <div className="w-full px-[8%] lg:px-[10%] mx-auto flex flex-col py-10">
       <div className="flex flex-col gap-6 items-center text-center py-10 md:py-16">
         <div className="text-4xl sm:text-5xl md:text-6xl bebas-neue-regular tracking-wide text-primary">
           Keep In Touch
         </div>
 
-        <div className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl">
+        <div className="text-base sm:text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl">
           I'm currently specializing in{" "}
           <span className="text-primary font-semibold">
             Full-Stack Development

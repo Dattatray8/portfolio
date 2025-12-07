@@ -51,7 +51,10 @@ function Navbar() {
         >
           Skills
         </button>
-        <button className="hover:text-primary duration-300 cursor-pointer">
+        <button
+          className="hover:text-primary duration-300 cursor-pointer"
+          onClick={() => scrollToSection("projects")}
+        >
           Projects
         </button>
       </div>
@@ -80,7 +83,10 @@ function Navbar() {
           >
             Skills
           </button>
-          <button className="hover:text-primary duration-300 text-left cursor-pointer">
+          <button
+            className="hover:text-primary duration-300 text-left cursor-pointer"
+            onClick={() => scrollToSection("projects")}
+          >
             Projects
           </button>
         </div>
