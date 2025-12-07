@@ -1,9 +1,16 @@
-import React from "react";
+import { useContext } from "react";
+import { context } from "../../context/AppContext";
 
 function ThemeController() {
+  let { theme, setTheme } = useContext(context);
   return (
     <label className="swap swap-rotate cursor-pointer">
-      <input type="checkbox" className="theme-controller" value="synthwave" />
+      <input
+        type="checkbox"
+        className="theme-controller"
+        checked={theme === "light"}
+        onChange={() => setTheme(theme === "dark" ? "light" : "dark")}
+      />
 
       <svg
         className="swap-off h-6 w-6 fill-current transition-all duration-300 hover:text-primary"
