@@ -66,7 +66,7 @@ function Hero() {
         </motion.div>
 
         <motion.div
-          className="bebas-neue-regular tracking-wide text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight break-words"
+          className="bebas-neue-regular tracking-wide text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight wrap-break-word"
           variants={itemVariants}
         >
           <span className="text-gradient">{typedName}</span>
