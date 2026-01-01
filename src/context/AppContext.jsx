@@ -7,7 +7,7 @@ function AppContext({ children }) {
     return localStorage.getItem("theme") || "light";
   });
   const [mode, setMode] = useState(() => {
-    return localStorage.getItem("portfolioMode") || "ai"; // Default to AI mode
+    return localStorage.getItem("portfolioMode") || "human";
   });
 
   useEffect(() => {
