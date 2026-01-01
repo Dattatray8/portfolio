@@ -1,86 +1,146 @@
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import reactLogo from "../assets/skill-icons/react-svgrepo-com.svg";
 
 function Footer() {
-  return (
-    <div className="w-full px-[8%] lg:px-[10%] mx-auto flex flex-col py-10">
-      <div className="flex flex-col gap-6 items-center text-center py-10 md:py-16">
-        <div className="text-4xl sm:text-5xl md:text-6xl bebas-neue-regular tracking-wide text-primary">
-          Keep In Touch
-        </div>
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-        <div className="text-base sm:text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl">
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      className="w-full px-4 sm:px-6 md:px-8 lg:px-[10%] mx-auto flex flex-col py-8 sm:py-10 relative overflow-hidden"
+      initial={{ opacity: 0 }}
+      animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <motion.div
+        className="flex flex-col gap-6 items-center text-center py-10 md:py-16"
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
+        <motion.div
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl bebas-neue-regular tracking-wide text-primary"
+          variants={itemVariants}
+        >
+          Keep In Touch
+        </motion.div>
+
+        <motion.div
+          className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-500 dark:text-gray-400 leading-relaxed max-w-2xl px-4"
+          variants={itemVariants}
+        >
           I'm currently specializing in{" "}
           <span className="text-primary font-semibold">
             Full-Stack Development
           </span>
           . <br className="hidden sm:block" />
           Feel free to get in touch and talk more.
-        </div>
+        </motion.div>
 
-        <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mt-4">
-          <div
-            className="btn group hover:bg-primary/10 duration-300 border hover:border-primary flex items-center gap-2 min-w-[140px] justify-center"
-            onClick={() => window.open("https://github.com/Dattatray8", "_")}
+        <motion.div
+          className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mt-4"
+          variants={itemVariants}
+        >
+          <motion.div
+            className="btn group hover:bg-primary/10 duration-300 border hover:border-primary flex items-center gap-2 min-w-[120px] sm:min-w-[140px] justify-center glow hover:glow text-sm sm:text-base magnetic-btn"
+            onClick={() => window.open("https://github.com/Dattatray8", "_blank")}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
-              className="w-5 h-5 group-hover:fill-primary fill-current"
+              className="w-5 h-5 group-hover:fill-primary fill-current transition-all"
             >
               <path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.87 10.95c.58.1.78-.25.78-.55v-2.1c-3.2.7-3.87-1.55-3.87-1.55-.52-1.32-1.28-1.67-1.28-1.67-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.97.1-.75.4-1.26.72-1.55-2.55-.3-5.23-1.28-5.23-5.73 0-1.27.45-2.32 1.2-3.14-.12-.3-.53-1.52.12-3.16 0 0 1-.32 3.3 1.2a11.2 11.2 0 0 1 6 0c2.28-1.52 3.28-1.2 3.28-1.2.65 1.64.24 2.86.12 3.16.75.82 1.2 1.87 1.2 3.14 0 4.46-2.7 5.43-5.26 5.72.42.36.8 1.08.8 2.2v3.26c0 .3.2.65.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
             </svg>
-            <span className="group-hover:text-primary">Github</span>
-          </div>
+            <span className="group-hover:text-primary transition-colors">Github</span>
+          </motion.div>
 
-          <div
-            className="btn group hover:bg-primary/10 duration-300 border hover:border-primary flex items-center gap-2 min-w-[140px] justify-center"
+          <motion.div
+            className="btn group hover:bg-primary/10 duration-300 border hover:border-primary flex items-center gap-2 min-w-[120px] sm:min-w-[140px] justify-center glow hover:glow text-sm sm:text-base magnetic-btn"
             onClick={() =>
               window.open(
                 "https://www.linkedin.com/in/dattatray-mahindrakar/",
-                "_"
+                "_blank"
               )
             }
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
-              className="w-5 h-5 group-hover:fill-primary fill-current"
+              className="w-4 h-4 sm:w-5 sm:h-5 group-hover:fill-primary fill-current transition-all"
             >
               <path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.52-.98 1.78-2 3.66-2 3.92 0 4.64 2.48 4.64 5.7V21h-4v-5.3c0-1.26-.03-2.88-1.76-2.88-1.76 0-2.03 1.37-2.03 2.8V21h-4V9Z" />
             </svg>
-            <span className="group-hover:text-primary">LinkedIn</span>
-          </div>
+            <span className="group-hover:text-primary transition-colors">LinkedIn</span>
+          </motion.div>
 
-          <div
-            className="btn group hover:bg-primary/10 duration-300 border hover:border-primary flex items-center gap-2 min-w-[140px] justify-center"
+          <motion.div
+            className="btn group hover:bg-primary/10 duration-300 border hover:border-primary flex items-center gap-2 min-w-[120px] sm:min-w-[140px] justify-center glow hover:glow text-sm sm:text-base magnetic-btn"
             onClick={() =>
-              window.open("mailto:dattatraymahindrakar@gmail.com", "_")
+              window.open("mailto:dattatraymahindrakar@gmail.com", "_blank")
             }
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
-              className="w-5 h-5 group-hover:fill-primary fill-current"
+              className="w-4 h-4 sm:w-5 sm:h-5 group-hover:fill-primary fill-current transition-all"
             >
               <path d="M2 4h20v16H2V4Zm10 7L3 6v2l9 5 9-5V6l-9 5Z" />
             </svg>
-            <span className="group-hover:text-primary">Email</span>
-          </div>
-        </div>
-      </div>
+            <span className="group-hover:text-primary transition-colors">Email</span>
+          </motion.div>
+        </motion.div>
+      </motion.div>
 
-      <div className="mx-auto text-center text-gray-400 text-sm sm:text-base leading-relaxed">
-        Developed By <span className="text-primary">Dattatray Mahindrakar</span>
+      <motion.div
+        className="mx-auto text-center text-gray-400 dark:text-gray-500 text-xs sm:text-sm md:text-base leading-relaxed px-4"
+        variants={itemVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
+        Developed By <span className="text-primary font-semibold">Dattatray Mahindrakar</span>
         .
-        <br />
+        <br className="sm:hidden" />
+        <span className="hidden sm:inline"> </span>
         Built with{" "}
-        <img
+        <motion.img
           src={reactLogo}
           alt="React Logo"
-          className="inline w-6 h-6 ml-1 align-middle"
+          className="inline w-5 h-5 sm:w-6 sm:h-6 ml-1 align-middle"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         />
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
